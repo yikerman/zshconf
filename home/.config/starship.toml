@@ -26,10 +26,12 @@ style = 'bold bright-magenta'   # Changed to magenta for high contrast
 trim_at = '.'
 
 [directory]
-format = '[$path]($style)'
+format = '[$path]($style)[$read_only]($read_only_style)'
 style = 'bold bright-cyan'      # Cyan provides great contrast against blue/magenta
 truncation_length = 0
 truncate_to_repo = false
+read_only = ' 🔒'
+read_only_style = ''
 
 [character]
 success_symbol = '[>](bold green)'
