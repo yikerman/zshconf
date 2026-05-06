@@ -1,8 +1,9 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# Added a space between hostname and directory for better readability
 format = """
 $username\
-$hostname\
+$hostname \
 $directory
 $character"""
 
@@ -14,18 +15,19 @@ add_newline = true
 [username]
 show_always = true
 format = '[$user]($style)'
-style_user = 'bold green'
-style_root = 'bold red'
+style_user = 'bold bright-blue' # Changed to blue to separate from hostname
+style_root = 'bold bright-red'
 
 [hostname]
-ssh_only = false          # always show hostname, not just over SSH
-format = '[@$hostname]($style):'
-style = 'bold green'
-trim_at = '.'             # drop anything after the first dot in the FQDN
+ssh_only = false
+# Styles the '@' and ':' as dimmed, making the hostname itself pop
+format = '[@](dimmed white)[$hostname]($style)[:](dimmed white)'
+style = 'bold bright-magenta'   # Changed to magenta for high contrast
+trim_at = '.'
 
 [directory]
 format = '[$path]($style)'
-style = 'bold blue'
+style = 'bold bright-cyan'      # Cyan provides great contrast against blue/magenta
 truncation_length = 0
 truncate_to_repo = false
 
